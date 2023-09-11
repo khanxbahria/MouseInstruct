@@ -398,3 +398,6 @@ FodyWeavers.xsd
 # Arduino Shared
 MouseInstructArduino/AbstractMouse.cpp
 MouseInstructArduino/AbstractMouse.h
+
+# Python
+__pycache__/
