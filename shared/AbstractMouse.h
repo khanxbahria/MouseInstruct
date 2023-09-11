@@ -5,7 +5,7 @@
 
 #pragma once
 #ifdef __AVR__
-#include <cstdint.h>
+#include <stdint.h>
 #else
 #include <cstdint>
 #endif
@@ -36,4 +36,3 @@ public:
     bool isPressed(const uint8_t& b = MOUSE_LEFT); // check LEFT by default
     virtual uint8_t* makeReport(const int16_t& x, const int16_t& y) = 0;
 };
-
