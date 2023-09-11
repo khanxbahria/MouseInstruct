@@ -14,7 +14,6 @@ void flushRawHIDBuffer() {
 }
 
 bool checkPing() {
-  const static uint8_t pingCode = 0xf9;
   if (rawhidData[0] == pingCode) {
     RawHID.write(rawhidData, sizeof(rawhidData));
     return true;
