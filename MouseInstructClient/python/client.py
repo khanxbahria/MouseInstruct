@@ -5,7 +5,7 @@ from mouse_instruct import MouseInstruct, DeviceNotFoundError
 
 def getMouse():
     try:
-        mouse = MouseInstruct.getMouse(0x2340, 0x484D)
+        mouse = MouseInstruct.getMouse()
         print("[+] Device found!")
     except DeviceNotFoundError as e:
         print(e)

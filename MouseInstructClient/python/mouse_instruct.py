@@ -13,12 +13,16 @@ class MouseInstruct:
         self.move(0, 0)
 
     @classmethod
-    def getMouse(cls, vid, pid, ping_code=0xf9):
+    def getMouse(cls, vid=0, pid=0, ping_code=0xf9):
         dev = find_mouse_device(vid, pid, ping_code)
         if not dev:
-            raise DeviceNotFoundError(
-                f"[-] Device Vendor ID: {hex(vid)}, Product ID: {hex(pid)} not found!"
-                )
+            vid_str = hex(vid) if vid else "Unspecified"
+            pid_str = hex(pid) if pid else "Unspecified"
+            ping_code_str = hex(ping_code) if pid else "Unspecified"
+            error_msg = ("[-] Device "
+                        f"Vendor ID: {vid_str}, Product ID: {pid_str} "
+                        f"Pingcode: {ping_code_str} not found!")
+            raise DeviceNotFoundError(error_msg)
         return cls(dev)
 
     def _buttons(self, buttons):
@@ -64,8 +68,12 @@ class DeviceNotFoundError(Exception):
 
 def check_ping(dev, ping_code):
     dev.write([0, ping_code])
-    resp = dev.read(max_length = 1, timeout_ms = 10)
-    return resp and resp[0] == ping_code
+    try:
+        resp = dev.read(max_length = 1, timeout_ms = 10)
+    except OSError as e:
+        return False
+    else:
+        return resp and resp[0] == ping_code
 
 def find_mouse_device(vid, pid, ping_code):
     dev = hid.device()
