@@ -8,7 +8,7 @@ Mouse Instruct firmware is based on `ImprovedMouse` class which provides a highe
 Mouse Instruct serves a distinct purpose: **externally** mimicking a mouse device to execute mouse actions while being controlled by the host system.  This becomes important for bypassing the limitations posed by certain anticheat software that prevents the use of simulated mouse movements via the win32 API's `SendInput` events. Mouse Instruct bypasses this restriction with a controlled external mouse that operates through the existing USB HID protocol, as opposed to the more easily detectable conventional Serial UART approach.
 
 ## Build firmware
-1. Copy files from `shared` to `ArduinoMouseInstruct`.
+1. Copy files from `shared` to `MouseInstructArduino`.
 2. Install [HID-Project Library](https://www.arduino.cc/reference/en/libraries/hid-project/) in Arduino IDE.
 3. (Optional) [Change `VID`/`PID`/`usb_product`/`usb_manufacturer`](https://gist.github.com/nebhead/c92da8f1a8b476f7c36c032a0ac2592a).
 4. Disable CDC Serial by appending ` -DCDC_DISABLED` to relevant `build.extra_flags` in `boards.txt`.
