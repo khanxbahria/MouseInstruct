@@ -1,6 +1,28 @@
 /*
   ImprovedMouse.h
-  Improved HID Mouse device firmware with 16 bit per movement axis
+
+  Copyright (c) 2023, khanxbahria
+  Arduino Mouse library code originally Copyright (c) 2015, Arduino LLC
+  Original code (pre-library) by Peter Barrett
+
+  This library is free software; you can redistribute it and/or
+  modify it under the terms of the GNU Lesser General Public
+  License as published by the Free Software Foundation; either
+  version 2.1 of the License, or (at your option) any later version.
+
+  This library is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+  Lesser General Public License for more details.
+
+  You should have received a copy of the GNU Lesser General Public
+  License along with this library; if not, write to the Free Software
+  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+
+  Modifications:
+  - Added support for 16-bit axis in HID report
+  - Removed scroll-wheel
+  - Provided a method for transmitting raw HID reports
 */
 
 #pragma once
